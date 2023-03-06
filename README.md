@@ -38,3 +38,22 @@ ordered table of maximum 5 rows with the following structure should be displayed
 |  |  |  |
 
 You should avoid hard-coding static lists in your application.
+
+## Installation
+
+In order to run this program on your own machine, you can simply clone this repository, or download this directory onto your machine, then follow these commands:
+
+```
+bundle install # this installs the gems in the Gemfile
+rackup # this starts up the server
+```
+The terminal should then read:
+```
+* Listening on http://127.0.0.1:9292
+* Listening on http://[::1]:9292
+```
+Following either of these urls should lead you to the landing page of the web-app.
+
+## Testing
+
+This program is tested using RSpec, which means you can run all the written tests by running the command `rspec` in the command line while in the directory.
