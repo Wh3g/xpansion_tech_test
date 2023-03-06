@@ -1,41 +1,50 @@
-Welcome, to start, please select a continent:
-<br>
-<br>
-<form action="/continent_select" , method="post">
-    <select name="continents">
-        <option value="AF">Africa</option>
-        <option value="AN">Antarctica</option>
-        <option value="AS">Asia</option>
-        <option value="EU">Europe</option>
-        <option value="NA">North America</option>
-        <option value="OC">Oceania</option>
-        <option value="SA">South America</option>
-    </select>
-    <input type="submit" value="Submit">
-</form>
-<br>
-<br>
-<% if @city_ranking.name == "Antarctica" %>
-There are zero ranked urban areas in Antarctica
-<% else %>
-    <% if @city_ranking.cities != nil %>
-        Top Ranking Urban Areas in 
-        <%= @city_ranking.name %>
-        <br>
-        <br>
-        <table>
-            <thead>
-                <td>Urban Area Name</td>
-                <td>Teleport Score</td>
-                <td>Summary</td>
-            </thead>
-            <% 5.times do | index |%>
-                <tr>
-                    <td><%= @city_ranking.cities[index]["name"] %></td>
-                    <td><%= @city_ranking.cities[index]["teleport_city_score"] %></td>
-                    <td><%= @city_ranking.cities[index]["summary"] %></td>
-                </tr>
-            <% end %>
-        </table>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teleport Rankings</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+  <body>
+    Welcome, to start, please select a continent:
+    <br>
+    <br>
+    <form action="/continent_select" , method="post">
+        <select name="continents">
+            <option value="AF">Africa</option>
+            <option value="AN">Antarctica</option>
+            <option value="AS">Asia</option>
+            <option value="EU">Europe</option>
+            <option value="NA">North America</option>
+            <option value="OC">Oceania</option>
+            <option value="SA">South America</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
+    <% if @city_ranking.name == "Antarctica" %>
+    There are zero ranked urban areas in Antarctica
+    <% else %>
+        <% if @city_ranking.cities != nil %>
+            Top Ranking Urban Areas in 
+            <%= @city_ranking.name %>
+            <br>
+            <br>
+            <table>
+                <thead>
+                    <th>Urban Area Name</th>
+                    <th>Teleport Score</th>
+                    <th>Summary</th>
+                </thead>
+                <% 5.times do | index |%>
+                    <tr>
+                        <td><%= @city_ranking.cities[index]["name"] %></td>
+                        <td><%= @city_ranking.cities[index]["teleport_city_score"] %></td>
+                        <td><%= @city_ranking.cities[index]["summary"] %></td>
+                    </tr>
+                <% end %>
+            </table>
+        <% end %>
     <% end %>
-<% end %>
+  </body>
+</html>
