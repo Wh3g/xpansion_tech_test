@@ -11,12 +11,13 @@ class CityRanking
     end
 
     private 
-    
+
     def cities_scores
         @cities.each do | city |
             response = HTTP.get(city["href"] + "scores/")
             city["teleport_city_score"] = response.parse["teleport_city_score"]
             city["summary"] = response.parse["summary"]
         end
+        @cities.sort_by! { | city | city["teleport_city_score"] }.reverse!
     end
 end
