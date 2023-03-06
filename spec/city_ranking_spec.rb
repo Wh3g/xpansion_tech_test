@@ -20,7 +20,6 @@ describe CityRanking do
         end
 
         it "#cities are ranked in order of score" do
-            p subject.cities
             expect(subject.cities[0]["teleport_city_score"]).to be >= subject.cities[1]["teleport_city_score"]
         end
     end
